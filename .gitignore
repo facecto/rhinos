@@ -1,0 +1,10 @@
+# IntelliJ project files
+.idea
+/.idea/
+/src/*/target/*
+*.iml
+out
+gen
+/.gradle
+/.idea
+/src/*/target
