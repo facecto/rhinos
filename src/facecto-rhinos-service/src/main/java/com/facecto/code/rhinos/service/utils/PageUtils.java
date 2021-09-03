@@ -20,35 +20,17 @@ import java.util.List;
 @NoArgsConstructor
 public class PageUtils<T> implements Serializable {
     private static final long serialVersionUID = 1L;
-    /**
-     * 总记录数
-     */
+
     private int totalCount;
-    /**
-     * 每页记录数
-     */
+
     private int pageSize;
-    /**
-     * 总页数
-     */
+
     private int totalPage;
-    /**
-     * 当前页数
-     */
+
     private int currPage;
-    /**
-     * 列表数据
-     */
+
     private List<T> list;
 
-    /**
-     * 分页
-     *
-     * @param list       列表数据
-     * @param totalCount 总记录数
-     * @param pageSize   每页记录数
-     * @param currPage   当前页数
-     */
     public PageUtils(List<T> list, int totalCount, int pageSize, int currPage) {
         this.list = list;
         this.totalCount = totalCount;
@@ -57,11 +39,6 @@ public class PageUtils<T> implements Serializable {
         this.totalPage = (int) Math.ceil((double) totalCount / pageSize);
     }
 
-
-    /**
-     * 分页
-     * @param page
-     */
     public PageUtils(IPage<T> page) {
         this.list = page.getRecords();
         this.totalCount = (int) page.getTotal();
@@ -70,14 +47,6 @@ public class PageUtils<T> implements Serializable {
         this.totalPage = (int) page.getPages();
     }
 
-    /**
-     * 类型转换
-     * @param page
-     * @param list
-     * @param <T>
-     * @param <Q>
-     * @return
-     */
     public static<T,Q> IPage<Q> Convert(IPage<T> page, List<Q> list){
         IPage<Q> page1 = new Page<>();
         page1.setTotal(page.getTotal());
